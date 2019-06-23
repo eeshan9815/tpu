@@ -156,7 +156,7 @@ def main(argv):
   while current_step < FLAGS.train_steps:
     next_checkpoint = min(current_step + FLAGS.train_steps_per_eval,
                           FLAGS.train_steps)
-    est.train(input_fn=train_eval_input_fn, max_steps=next_checkpoint.item())
+    est.train(input_fn=train_eval_input_fn, max_steps=next_checkpoint)
     current_step = next_checkpoint
     tf.logging.info('Finished training step %d' % current_step)
 
